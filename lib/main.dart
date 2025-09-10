@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:formify/config/theme/app_theme.dart';
 import 'package:formify/constants/export.dart';
 import 'package:formify/config/theme/theme-cont.dart';
-import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         theme: lightTheme,
         darkTheme: darkTheme,
-        themeMode: themeController.theme.value, // 👈 use .value
+        themeMode: themeController.theme.value, 
         debugShowCheckedModeBanner: false,
         initialRoute: AppLinks.splash_screen,
         getPages: AppRoutes.pages,

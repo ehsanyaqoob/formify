@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:formify/config/theme/theme_switcher.dart';
+
 import 'package:formify/constants/export.dart';
 import 'package:formify/controller/events-controller.dart';
 import 'package:formify/model/events-model.dart';
@@ -22,50 +20,42 @@ class _EventsScreenState extends State<EventsScreen> {
     return Scaffold(
       backgroundColor: kDynamicBackground,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 36.0),
-          child: Column(
-            children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     MyText(
-              //       text: "Events",
-              //       color: kDynamicText,
-              //       size: 20,
-              //       weight: FontWeight.w700,
-              //     ),
-              //     const ThemeToggleIcon(),
-              //   ],
-              // ),
-              CustomCalendar(
-                focusedDay: _focusedDay,
-                selectedDay: controller.selectedDate.value,
-                onDaySelected: (selectedDay, focusedDay) {
-                  controller.selectDate(selectedDay);
-                  setState(() => _focusedDay = focusedDay);
-                },
-                onFormatChanged: (format) {
-                  setState(() => _calendarFormat = format);
-                },
-                eventLoader: controller.getEventsForDay,
-              ),
-              Gap(30),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: MyText(
-                  text: "My Events",
-                  color: kDynamicText,
-                  size: 12,
-                  weight: FontWeight.w500,
-                ),
-              ),
-              Divider(thickness: 1, color: kDynamicText.withOpacity(0.7)),
-              Expanded(child: EventsList()),
-            ],
+  child: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 36.0),
+    child: SingleChildScrollView(
+      physics: AlwaysScrollableScrollPhysics(),
+      
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomCalendar(
+            focusedDay: _focusedDay,
+            selectedDay: controller.selectedDate.value,
+            onDaySelected: (selectedDay, focusedDay) {
+              controller.selectDate(selectedDay);
+              setState(() => _focusedDay = focusedDay);
+            },
+            onFormatChanged: (format) {
+              setState(() => _calendarFormat = format);
+            },
+            eventLoader: controller.getEventsForDay,
           ),
-        ),
+          Gap(30),
+          MyText(
+            text: "My Events",
+            color: kDynamicText,
+            size: 12,
+            weight: FontWeight.w500,
+          ),
+          Divider(thickness: 1, color: kDynamicText.withOpacity(0.7)),
+          EventsList(), 
+          Gap(40),
+        ],
       ),
+    ),
+  ),
+),
+
     );
   }
 }
@@ -102,21 +92,18 @@ class _CustomCalendarState extends State<CustomCalendar> {
           color: kDynamicContainer,
           borderRadius: BorderRadius.circular(12.0),
           boxShadow: [
-            // Base subtle shadow
             BoxShadow(
               offset: Offset(0, 2),
               blurRadius: 8,
               spreadRadius: 0,
               color: kDynamicShadow.withOpacity(0.1),
             ),
-            // Main shadow layer
             BoxShadow(
               offset: Offset(0, 6),
               blurRadius: 16,
               spreadRadius: -2,
               color: kDynamicShadow.withOpacity(0.15),
             ),
-            // Ambient light layer
             BoxShadow(
               offset: Offset(0, 4),
               blurRadius: 20,
@@ -227,7 +214,6 @@ class _CustomCalendarState extends State<CustomCalendar> {
                           boxShadow: [
                             BoxShadow(
                               color: kPrimaryColor3,
-                              //blurRadius: 0.2,
                               spreadRadius: 2,
                             ),
                           ],
@@ -278,7 +264,6 @@ class _CustomCalendarState extends State<CustomCalendar> {
                     boxShadow: [
                       BoxShadow(
                         color: kPrimaryColor.withOpacity(0.4),
-                        // blurRadius: 3,
                         spreadRadius: 2,
                       ),
                     ],
@@ -410,8 +395,6 @@ class _CustomCalendarState extends State<CustomCalendar> {
     final hour = dateTime.hour;
     final period = hour < 12 ? 'AM' : 'PM';
     final displayHour = hour % 12;
-
-    // Always show just the hour without minutes
     return '${displayHour == 0 ? 12 : displayHour}$period';
   }
 
@@ -469,24 +452,17 @@ class _EventsListState extends State<EventsList> {
         );
       }
 
-      return Column(
-        children: [
-          Expanded(
-            // This makes the list take all remaining space
-            child: ListView.builder(
-              itemCount: events.length,
-              shrinkWrap: true, // take only required height
-              // physics: NeverScrollableScrollPhysics(), // disable inner scrolling
-              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
-            
-              itemBuilder: (context, index) {
-                final event = events[index];
-                return _buildEventCard(event);
-              },
-            ),
-          ),
-        ],
-      );
+     return ListView.builder(
+  itemCount: events.length,
+  shrinkWrap: true,
+  physics: NeverScrollableScrollPhysics(), // ✅ disable inner scrolling
+  padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
+  itemBuilder: (context, index) {
+    final event = events[index];
+    return _buildEventCard(event);
+  },
+);
+
     });
   }
 
@@ -497,21 +473,18 @@ class _EventsListState extends State<EventsList> {
         color: kDynamicContainer,
         borderRadius: BorderRadius.circular(12.0),
         boxShadow: [
-          // Base subtle shadow
           BoxShadow(
             offset: Offset(0, 2),
             blurRadius: 8,
             spreadRadius: 0,
             color: kDynamicShadow.withOpacity(0.1),
           ),
-          // Main shadow layer
           BoxShadow(
             offset: Offset(0, 6),
             blurRadius: 16,
             spreadRadius: -2,
             color: kDynamicShadow.withOpacity(0.15),
           ),
-          // Ambient light layer
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 20,
@@ -630,8 +603,6 @@ class _EventsListState extends State<EventsList> {
     final hour = dateTime.hour;
     final period = hour < 12 ? 'AM' : 'PM';
     final displayHour = hour % 12;
-
-    // Show only the hour, no minutes
     return '${displayHour == 0 ? 12 : displayHour}$period';
   }
 }

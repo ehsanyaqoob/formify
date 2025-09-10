@@ -2,7 +2,7 @@
 
 import 'package:formify/constants/export.dart';
 
-//! AppThemes 
+//! AppThemes
 
 class AppThemeColors {
   static Color getPrimaryColor(BuildContext context) {

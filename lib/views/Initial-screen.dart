@@ -1,17 +1,14 @@
 import 'package:formify/constants/export.dart';
 import 'package:formify/views/bottom-navbar/navbar.dart';
-import 'package:formify/widget/auth-sheets.dart';
-import 'package:formify/widget/dialogs/dialogs.dart';
-import 'package:formify/widget/my_textfeild.dart';
 
-class Authscreen extends StatefulWidget {
-  const Authscreen({super.key});
+class InitialScreen extends StatefulWidget {
+  const InitialScreen({super.key});
 
   @override
-  State<Authscreen> createState() => _AuthscreenState();
+  State<InitialScreen> createState() => _InitialScreenState();
 }
 
-class _AuthscreenState extends State<Authscreen> {
+class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,59 +79,6 @@ class _AuthscreenState extends State<Authscreen> {
                       },
                     ),
                     Gap(60),
-
-                    // Gap(30),
-
-                    // // Usage in your button
-                    // MyButtonWithIcon(
-                    //   text: 'Sign-In with email'.tr,
-                    //   icon: Icons.email,
-                    //   onTap: () {
-                    //     showModalBottomSheet(
-                    //       context: context,
-                    //       isScrollControlled: true,
-                    //       backgroundColor: Colors.transparent,
-                    //       builder: (context) => EmailSignInBottomSheet(),
-                    //       enableDrag: true,
-                    //       isDismissible: false,
-                    //     );
-                    //   },
-                    //   color: kPrimaryColor,
-                    //   textColor: kWhite,
-                    // ),
-
-                    // Gap(20),
-                    // MyButtonWithIcon(
-                    //   text: 'Sign-In with Google'.tr,
-                    //   icon: Icons.email,
-                    //   onTap: () {
-                    //     // Handle sign-in with email
-                    //     DialogHelper.GoogleSignInDialog(context);
-                    //   },
-                    //   color: kWhite,
-                    //   textColor: kPrimaryColor,
-                    // ),
-                    // Gap(20),
-                    // // Usage in your button
-                    // MyButtonWithIcon(
-                    //   text: 'Sign-up with email'.tr,
-                    //   icon: Icons.email,
-                    //   onTap: () {
-                    //     showModalBottomSheet(
-                    //       context: context,
-                    //       isScrollControlled: true,
-                    //       backgroundColor: Colors.transparent,
-                    //       builder: (context) => EmailSignUpBottomSheet(),
-                    //       enableDrag: true,
-
-                    //       isDismissible:
-                    //           false, // Prevent closing by tapping outside
-                    //     );
-                    //   },
-                    //   color: kPrimaryColor,
-                    //   textColor: kWhite,
-                    // ),
-                    // Gap(50),
                   ],
                 ),
               ),

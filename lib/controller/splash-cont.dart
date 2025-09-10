@@ -1,9 +1,6 @@
 // lib/controllers/splash_cont.dart
 import 'dart:async';
-
-import 'package:formify/config/routes/routes.dart';
-import 'package:formify/views/auth/authscreen.dart';
-import 'package:formify/views/intial.dart';
+import 'package:formify/views/Initial-screen.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -48,6 +45,6 @@ class SplashController extends GetxController {
   }
 
   void navigateToNextScreen() {
-    Get.to(Authscreen());
+    Get.to(InitialScreen());
   }
 }

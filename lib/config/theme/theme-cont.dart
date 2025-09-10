@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeController extends GetxController {
-  final Rx<ThemeMode> _themeMode = ThemeMode.dark.obs; 
+  final Rx<ThemeMode> _themeMode = ThemeMode.dark.obs;
   final RxBool _isDarkMode = true.obs;
-Rx<ThemeMode> get theme => _themeMode; 
+  Rx<ThemeMode> get theme => _themeMode;
 
   ThemeMode get themeMode => _themeMode.value;
   bool get isDarkMode => _isDarkMode.value;
@@ -21,9 +21,7 @@ Rx<ThemeMode> get theme => _themeMode;
 
   void _setupSystemThemeListener() {
     WidgetsBinding.instance.addObserver(
-      LifecycleEventHandler(
-        resumeCallBack: () => _checkSystemThemeAndUpdate(),
-      ),
+      LifecycleEventHandler(resumeCallBack: () => _checkSystemThemeAndUpdate()),
     );
   }
 
@@ -41,7 +39,8 @@ Rx<ThemeMode> get theme => _themeMode;
   Future<void> _loadThemePreference() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final String theme = prefs.getString('theme') ?? 'dark'; // 👈 default dark
+      final String theme =
+          prefs.getString('theme') ?? 'dark'; // 👈 default dark
 
       switch (theme) {
         case 'light':
