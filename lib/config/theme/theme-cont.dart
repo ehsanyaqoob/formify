@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeController extends GetxController {
+class ThemeController extends GetxController with WidgetsBindingObserver {
   final Rx<ThemeMode> _themeMode = ThemeMode.dark.obs;
   final RxBool _isDarkMode = true.obs;
   Rx<ThemeMode> get theme => _themeMode;
@@ -14,33 +14,40 @@ class ThemeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    WidgetsBinding.instance.addObserver(this);
     _loadThemePreference();
-    _checkSystemTheme();
-    _setupSystemThemeListener();
   }
 
-  void _setupSystemThemeListener() {
-    WidgetsBinding.instance.addObserver(
-      LifecycleEventHandler(resumeCallBack: () => _checkSystemThemeAndUpdate()),
-    );
+  @override
+  void onClose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.onClose();
   }
 
-  void _checkSystemThemeAndUpdate() {
-    final bool wasDarkMode = _isDarkMode.value;
-    _checkSystemTheme();
+  @override
+  void didChangePlatformBrightness() {
+    // This gets called automatically when system theme changes
+    if (_themeMode.value == ThemeMode.system) {
+      _checkSystemTheme();
+      update(); // Notify listeners about the change
+    }
+  }
 
-    // Only update if system theme changed and we’re in system mode
-    if (_themeMode.value == ThemeMode.system &&
-        wasDarkMode != _isDarkMode.value) {
-      update();
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // Check system theme when app resumes
+      if (_themeMode.value == ThemeMode.system) {
+        _checkSystemTheme();
+        update();
+      }
     }
   }
 
   Future<void> _loadThemePreference() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final String theme =
-          prefs.getString('theme') ?? 'dark'; // 👈 default dark
+      final String theme = prefs.getString('theme') ?? 'dark'; // Default dark
 
       switch (theme) {
         case 'light':
@@ -51,10 +58,13 @@ class ThemeController extends GetxController {
           _themeMode.value = ThemeMode.dark;
           _isDarkMode.value = true;
           break;
-        default:
+        case 'system':
           _themeMode.value = ThemeMode.system;
           _checkSystemTheme();
           break;
+        default:
+          _themeMode.value = ThemeMode.dark; // Fallback to dark
+          _isDarkMode.value = true;
       }
     } catch (e) {
       // Fallback to dark theme if loading fails
@@ -104,35 +114,6 @@ class ThemeController extends GetxController {
       switchTheme(ThemeMode.dark);
     } else {
       switchTheme(ThemeMode.light);
-    }
-  }
-
-  @override
-  void onClose() {
-    WidgetsBinding.instance.removeObserver(
-      LifecycleEventHandler(resumeCallBack: () => _checkSystemThemeAndUpdate()),
-    );
-    super.onClose();
-  }
-}
-
-// Helper class for lifecycle events
-class LifecycleEventHandler extends WidgetsBindingObserver {
-  final VoidCallback resumeCallBack;
-
-  LifecycleEventHandler({required this.resumeCallBack});
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        resumeCallBack();
-        break;
-      case AppLifecycleState.inactive:
-      case AppLifecycleState.paused:
-      case AppLifecycleState.detached:
-      case AppLifecycleState.hidden:
-        break;
     }
   }
 }
