@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:formify/constants/app_colors.dart';
 import 'package:formify/constants/app_sizes.dart';
 import 'package:formify/generated/assets.dart';
-import 'package:formify/views/bottom-navbar/bottomnavbar.dart';
+import 'package:formify/views/bottom-navbar/navbar.dart';
 import 'package:formify/widget/common_image_view_widget.dart';
 import 'package:formify/widget/custom_appbar.dart';
 import 'package:formify/widget/my_text_widget.dart';

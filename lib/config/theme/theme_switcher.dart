@@ -1,25 +1,22 @@
-// lib/widgets/theme_switcher.dart
 import 'package:flutter/material.dart';
-import 'package:formify/config/theme/theme-cont.dart';
 import 'package:get/get.dart';
+import 'package:formify/config/theme/theme-cont.dart';
 
-class ThemeSwitcher extends StatefulWidget {
-  const ThemeSwitcher({super.key});
+class ThemeToggleIcon extends StatelessWidget {
+  const ThemeToggleIcon({super.key});
 
-  @override
-  State<ThemeSwitcher> createState() => _ThemeSwitcherState();
-}
-
-class _ThemeSwitcherState extends State<ThemeSwitcher> {
   @override
   Widget build(BuildContext context) {
     final ThemeController themeController = Get.find();
-    
+
     return Obx(() {
-      return SwitchListTile(
-        title: Text(themeController.isDarkMode ? 'Dark Mode' : 'Light Mode'),
-        value: themeController.isDarkMode,
-        onChanged: (value) {
+      return IconButton(
+        icon: Icon(
+          themeController.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+          color: themeController.isDarkMode ? Colors.yellow : Colors.black,
+          size: 26,
+        ),
+        onPressed: () {
           themeController.toggleTheme();
         },
       );

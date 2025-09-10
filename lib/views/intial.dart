@@ -17,25 +17,24 @@ class _InitialScreenState extends State<InitialScreen> {
   
 final List<Map<String, String>> onboardingData = [
   {
-    'title': 'Endless Choices\nJust For You',
+    'title': 'Smart Scheduling\nMade For You',
     'description':
-        'From daily basis to premium finds, explore the world of products curated to meet your needs.',
+        'From daily meetings to special events, manage your calendar with intuitive tools designed for your busy lifestyle.',
     'image': '',
   },
   {
-    'title': 'Personalized Experience\nJust For You',
+    'title': 'Personalized Calendar\nJust For You',
     'description':
-        'Get recommendations tailored exactly to your unique shopping preferences and personal habits.',
+        'Experience events and reminders tailored to your unique schedule preferences and organizational style.',
     'image': '',
   },
   {
-    'title': 'Seamless Shopping\nJust For You',
+    'title': 'Seamless Event \nJust For You',
     'description':
-        'Enjoy a smooth, stress-free journey from browsing items to a quick and easy checkout process.',
+        'Enjoy a smooth, effortless journey from creating events to tracking your daily schedule with elegant simplicity.',
     'image': '',
   },
 ];
-
   @override
   void initState() {
     super.initState();

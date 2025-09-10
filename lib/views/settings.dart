@@ -12,7 +12,7 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         children: [
           // Theme switcher
-          ThemeSwitcher(),
+          ThemeToggleIcon(),
           // Other settings...
         ],
       ),
@@ -90,7 +90,7 @@ class SettingsPage extends StatelessWidget {
           children: [
             ThemeSelector(), // Your custom selector
             SizedBox(height: 20),
-            ThemeSwitcher(), // The basic switch
+            ThemeToggleIcon(), // The basic switch
           ],
         ),
       ),

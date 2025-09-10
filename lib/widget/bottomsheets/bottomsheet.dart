@@ -29,8 +29,8 @@ void OtpBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -190,8 +190,8 @@ void OtpBottomSheetPhone(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -349,8 +349,8 @@ void ForgotPasswordBottomSheet(BuildContext context) {
       ),
       child: Container(
         padding: AppSizes.DEFAULT,
-        decoration: const BoxDecoration(
-          color: kbackground,
+        decoration:  BoxDecoration(
+          color: kDynamicContainer,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Column(
@@ -423,7 +423,7 @@ void ForgotPasswordBottomSheet(BuildContext context) {
               buttonText: "Use phone number".tr,
               fontColor: kSecondaryColor,
               fontSize: 14,
-              backgroundColor: kbackground,
+              backgroundColor: kDynamicContainer,
               onTap: () {
                 Get.back();
                 ForgotPasswordPhoneBottomSheet(context);
@@ -451,8 +451,8 @@ void ForgotPasswordOtpBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -680,8 +680,8 @@ void ForgotPasswordPhoneBottomSheet(BuildContext context) {
 
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -814,7 +814,7 @@ void ForgotPasswordPhoneBottomSheet(BuildContext context) {
                   buttonText: "Use email address".tr,
                   fontColor: kSecondaryColor,
                   fontSize: 14,
-                  backgroundColor: kbackground,
+                  backgroundColor: kDynamicContainer,
                   onTap: () {
                     Get.back();
                     ForgotPasswordBottomSheet(context);
@@ -844,8 +844,8 @@ void ForgotPasswordPhoneOtpBottomSheetPhone(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -1006,8 +1006,8 @@ void ResetPasswordPhoneBottomSheet(BuildContext context) {
       ),
       child: Container(
         padding: AppSizes.DEFAULT,
-        decoration: const BoxDecoration(
-          color: kbackground,
+        decoration:  BoxDecoration(
+          color: kDynamicContainer,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Column(
@@ -1138,8 +1138,8 @@ void FliterHomeBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -1358,8 +1358,8 @@ void FliterRadioBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -1510,8 +1510,8 @@ void NowPlayingBottomSheet(BuildContext context) {
       ),
       child: Container(
         padding: AppSizes.DEFAULT,
-        decoration: const BoxDecoration(
-          color: kbackground,
+        decoration:  BoxDecoration(
+          color: kDynamicContainer,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Column(
@@ -1684,8 +1684,8 @@ void SocialBottomSheet(BuildContext context) {
 
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -1795,8 +1795,8 @@ void PaymentBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: SingleChildScrollView(
@@ -1995,8 +1995,8 @@ void PaymentBottomSheet2(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: SingleChildScrollView(
@@ -2203,8 +2203,8 @@ void ReportBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: SingleChildScrollView(
@@ -2364,8 +2364,8 @@ void AddPostBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -2508,8 +2508,8 @@ void TaggedProfilesBottomSheet(BuildContext context) {
 
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -2772,8 +2772,8 @@ void GalleryBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -2871,8 +2871,8 @@ void ReviewBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -2991,8 +2991,8 @@ void ReviewServiceBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -3094,9 +3094,9 @@ void NewChatBottomSheet(BuildContext context) {
       child: StatefulBuilder(
         builder: (context, setState) {
           return Container(
-            decoration: const BoxDecoration(
-              color: kbackground,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            decoration: BoxDecoration(
+              color: kDynamicContainer,
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

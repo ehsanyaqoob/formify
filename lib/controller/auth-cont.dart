@@ -1,5 +1,5 @@
 import 'package:formify/constants/export.dart';
-import 'package:formify/views/bottom-navbar/bottomnavbar.dart';
+import 'package:formify/views/bottom-navbar/navbar.dart';
 import 'package:get/get.dart';
 import 'package:formify/widget/toasts.dart';
 

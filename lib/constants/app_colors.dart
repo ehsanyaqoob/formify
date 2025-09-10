@@ -7,30 +7,49 @@ import 'package:get/get.dart';
 ThemeController get _themeController => Get.find<ThemeController>();
 
 // Dynamic colors that change with theme
-Color get kDynamicBackground => _themeController.isDarkMode ? kBlack : kWhite;
-Color get kDynamicText => _themeController.isDarkMode ? kWhite : kBlack;
+Color get kDynamicBackground => _themeController.isDarkMode ? kScaffoldDark : kScaffoldLight;
+Color get kDynamicContainer => _themeController.isDarkMode ? kContainerDark : kContainerLight;
+Color get kDynamicText => _themeController.isDarkMode ? kTextDark : kTextLight;
 Color get kDynamicPrimary => _themeController.isDarkMode ? kPrimaryColorDark : kPrimaryColor;
 Color get kDynamicSecondary => _themeController.isDarkMode ? kSecondaryColorDark : kSecondaryColor;
+Color get kDynamicShadow => _themeController.isDarkMode ? kShadowDark : kShadowLight;
 
-// Blue Ocean theme colors
-const kPrimaryColor = Color(0xFF0077B6);      // Deep ocean blue
-const kPrimaryColor2 = Color(0xFF00B4D8);     // Bright ocean blue
-const kPrimaryColor3 = Color(0xFF90E0EF);     // Light ocean blue
-final kPrimaryColor4 = Color(0x800077B6);     // Semi-transparent deep blue
+// Scaffold background colors
+const kScaffoldLight = Color(0xFFF9FAFB);      // Light mode scaffold background
+const kScaffoldDark = Color(0xFF424346);       // Dark mode scaffold background (from 424346)
 
-const kSecondaryColor = Color(0xFFFFFFFF);    // Pure white
-const kSecondaryColor2 = Color(0xFFF8F9FA);   // Very light grey
-const kSecondaryColor3 = Color(0xFFE9ECEF);   // Light grey
-final kSecondaryColor4 = Color(0x80FFFFFF);   // Semi-transparent white
+// Container/Content background colors
+const kContainerLight = Color(0xFFFFFFFF);     // Light mode container background
+const kContainerDark = Color(0xFF454545);      // Dark mode container background (from 454545)
 
-// Dark theme variants
-const kPrimaryColorDark = Color(0xFF005A87);      // Darker ocean blue
-const kPrimaryColor2Dark = Color(0xFF0086B3);     // Medium ocean blue
-const kPrimaryColor3Dark = Color(0xFF66C7E0);     // Light ocean blue
+// Text colors
+const kTextLight = Color(0xFF000000);          // Light mode text
+const kTextDark = Color(0xFFFFFFFF);           // Dark mode text
 
-const kSecondaryColorDark = Color(0xFF121212);    // Near black
-const kSecondaryColor2Dark = Color(0xFF2D2D2D);   // Dark grey
-const kSecondaryColor3Dark = Color(0xFF454545);   // Medium dark grey
+// Shadow colors
+const kShadowLight = Color(0x33000000);        // Light mode shadow (black with 20% opacity)
+const kShadowDark = Color(0x1A000000);         // Dark mode shadow (black with 10% opacity)
+
+// New color theme based on base color #4A249D
+const kPrimaryColor = Color(0xFF4A249D);      // Base primary (deep purple)
+const kPrimaryColor2 = Color(0xFF673AB7);     // Slightly lighter purple
+const kPrimaryColor3 = Color(0xFF9575CD);     // Even lighter purple/lavender
+final kPrimaryColor4 = Color(0x804A249D);     // Semi-transparent primary
+  // Semi-transparent primary
+
+const kSecondaryColor = Color(0xFFF7F5FA);    // Very light purple/white (from F7F5FA)
+const kSecondaryColor2 = Color(0xFFE8E4F0);   // Slightly darker light purple
+const kSecondaryColor3 = Color(0xFFD9D3E6);   // Light purple grey
+final kSecondaryColor4 = Color(0x80F7F5FA);   // Semi-transparent secondary
+
+// Dark theme variants (based on #4A249D)
+const kPrimaryColorDark = Color(0xFF381C7A);   // Darker shade
+const kPrimaryColor2Dark = Color(0xFF512DA8);  // Medium purple
+const kPrimaryColor3Dark = Color(0xFF7E57C2);  // Lighter purple
+
+const kSecondaryColorDark = Color(0xFF424346);    // Dark grey (from 424346)
+const kSecondaryColor2Dark = Color(0xFF4E4F52);   // Slightly lighter dark grey
+const kSecondaryColor3Dark = Color(0xFF5A5B5E);   // Medium dark grey
 
 // Common colors (remain the same for both themes)
 const kTransperentColor = Colors.transparent;
@@ -38,15 +57,14 @@ const kWhite = Color(0xFFFFFFFF);
 const kWhite2 = Color(0xFFAAAAAA);
 const kBlack = Color(0xFF000000);
 
-const kAccentColor = Color(0xFF0E0E0E);
-const kAccentColor2 = Color(0xFF4E4E4E);
-const kAccentColor3 = Color(0xFF8E8E8E);
-final kAccentColor4 = Color(0x800E0E0E);
+const kAccentColor = Color(0xFF454545);       // Dark grey (from 454545)
+const kAccentColor2 = Color(0xFF656565);       // Medium grey
+const kAccentColor3 = Color(0xFF878787);       // Light grey
+final kAccentColor4 = Color(0x80454545);       // Semi-transparent accent
 
 final kOverLay = Color(0x80000000); 
-final KSectionBg = Color(0xFF2F2F2F); 
+const KSectionBg = Color(0xFF424346);         // Section background (from 424346)
 
-const kbackground = Color(0xFFF9FAFB);
 const kSubText = Color(0xFF848E99);
 
 //! All Text Colors
@@ -123,6 +141,49 @@ const kGreyDividerColor = Color(0x33000000);
 const kGreyborder = Color(0xffBCBCBC);
 const kGreyborder2 = Color(0xffD0D5DD);
 const kGreyborder3 = Color(0xffB7B7B7);
+
+//! Predefined shadow styles
+final kShadowSmall = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 4.0,
+  offset: const Offset(0, 1.0),
+  spreadRadius: 0,
+);
+
+final kShadowMedium = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 8.0,
+  offset: const Offset(0, 2.0),
+  spreadRadius: 0,
+);
+
+final kShadowLarge = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 16.0,
+  offset: const Offset(0, 4.0),
+  spreadRadius: 0,
+);
+
+final kShadowXLarge = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 24.0,
+  offset: const Offset(0, 8.0),
+  spreadRadius: 0,
+);
+
+final kShadowCard = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 6.0,
+  offset: const Offset(0, 2.0),
+  spreadRadius: 0,
+);
+
+final kShadowButton = BoxShadow(
+  color: kDynamicShadow,
+  blurRadius: 3.0,
+  offset: const Offset(0, 1.0),
+  spreadRadius: 0,
+);
 
 //! All Gradients
 final kContainerBackgroundGradeintColor = LinearGradient(

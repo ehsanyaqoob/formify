@@ -1,4 +1,5 @@
 import 'package:formify/constants/export.dart';
+import 'package:formify/views/bottom-navbar/navbar.dart';
 import 'package:formify/widget/auth-sheets.dart';
 import 'package:formify/widget/dialogs/dialogs.dart';
 import 'package:formify/widget/my_textfeild.dart';
@@ -51,15 +52,15 @@ class _AuthscreenState extends State<Authscreen> {
                     ),
                     Gap(10),
                     MyText(
-                      text: 'Everything You Need, Nothing You Don\'t'.tr,
+                      text: 'Plan Smarter, Organize Better'.tr,
                       color: kWhite,
                       size: 20,
                       weight: FontWeight.bold,
                     ),
-
+                    Gap(6),
                     MyText(
                       text:
-                          'Discover a world of products tailored to your needs. Shop smart, live better.'
+                          'Stay on top of every event, schedule with ease, and never miss a moment.'
                               .tr,
                       color: kWhite,
                       size: 14,
@@ -68,56 +69,72 @@ class _AuthscreenState extends State<Authscreen> {
                     ),
                     Gap(30),
 
-                    // Usage in your button
-                    MyButtonWithIcon(
-                      text: 'Sign-In with email'.tr,
-                      icon: Icons.email,
+                    MyButton(
+                      buttonText: 'Get Started',
+                      backgroundColor: kPrimaryColor,
+                      fontWeight: FontWeight.bold,
                       onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          builder: (context) => EmailSignInBottomSheet(),
-                          enableDrag: true,
-                          isDismissible: false,
+                        Get.to(
+                          MainNavigation(),
+                          transition: Transition.rightToLeftWithFade,
+                          duration: const Duration(milliseconds: 500),
                         );
                       },
-                      color: kPrimaryColor,
-                      textColor: kWhite,
                     ),
+                    Gap(60),
 
-                    Gap(20),
-                    MyButtonWithIcon(
-                      text: 'Sign-In with Google'.tr,
-                      icon: Icons.email,
-                      onTap: () {
-                        // Handle sign-in with email
-                         DialogHelper.GoogleSignInDialog(context);
-                      },
-                      color: kWhite,
-                      textColor: kPrimaryColor,
-                    ),
-                    Gap(20),
-                    // Usage in your button
-                    MyButtonWithIcon(
-                      text: 'Sign-up with email'.tr,
-                      icon: Icons.email,
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          builder: (context) => EmailSignUpBottomSheet(),
-                          enableDrag: true,
+                    // Gap(30),
 
-                          isDismissible:
-                              false, // Prevent closing by tapping outside
-                        );
-                      },
-                      color: kPrimaryColor,
-                      textColor: kWhite,
-                    ),
-                    Gap(50),
+                    // // Usage in your button
+                    // MyButtonWithIcon(
+                    //   text: 'Sign-In with email'.tr,
+                    //   icon: Icons.email,
+                    //   onTap: () {
+                    //     showModalBottomSheet(
+                    //       context: context,
+                    //       isScrollControlled: true,
+                    //       backgroundColor: Colors.transparent,
+                    //       builder: (context) => EmailSignInBottomSheet(),
+                    //       enableDrag: true,
+                    //       isDismissible: false,
+                    //     );
+                    //   },
+                    //   color: kPrimaryColor,
+                    //   textColor: kWhite,
+                    // ),
+
+                    // Gap(20),
+                    // MyButtonWithIcon(
+                    //   text: 'Sign-In with Google'.tr,
+                    //   icon: Icons.email,
+                    //   onTap: () {
+                    //     // Handle sign-in with email
+                    //     DialogHelper.GoogleSignInDialog(context);
+                    //   },
+                    //   color: kWhite,
+                    //   textColor: kPrimaryColor,
+                    // ),
+                    // Gap(20),
+                    // // Usage in your button
+                    // MyButtonWithIcon(
+                    //   text: 'Sign-up with email'.tr,
+                    //   icon: Icons.email,
+                    //   onTap: () {
+                    //     showModalBottomSheet(
+                    //       context: context,
+                    //       isScrollControlled: true,
+                    //       backgroundColor: Colors.transparent,
+                    //       builder: (context) => EmailSignUpBottomSheet(),
+                    //       enableDrag: true,
+
+                    //       isDismissible:
+                    //           false, // Prevent closing by tapping outside
+                    //     );
+                    //   },
+                    //   color: kPrimaryColor,
+                    //   textColor: kWhite,
+                    // ),
+                    // Gap(50),
                   ],
                 ),
               ),

@@ -236,7 +236,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       effects: [FadeEffect(duration: const Duration(milliseconds: 500))],
       child: AppBar(
         centerTitle: centerTitle,
-        backgroundColor: kbackground,
+        backgroundColor: kDynamicContainer,
         automaticallyImplyLeading: false,
         leading:
             isRTL
@@ -631,7 +631,7 @@ class CustomAppBar3 extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
 
@@ -772,7 +772,7 @@ class CustomAppBar4 extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:
@@ -913,7 +913,7 @@ class CustomAppBarEditProfile extends StatelessWidget
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:
@@ -1002,7 +1002,7 @@ class SimpleCustomAppBar extends StatelessWidget
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           // Show leading only if not RTL
@@ -1160,7 +1160,7 @@ class CustomAppBar5 extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:
@@ -1294,7 +1294,7 @@ class CustomAppBar6 extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:
@@ -1383,7 +1383,7 @@ class SimpleCustomAppBar2 extends StatelessWidget
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           // Show leading only if not RTL
@@ -1642,7 +1642,7 @@ class SimpleCustomAppBar3 extends StatelessWidget
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:
@@ -2057,7 +2057,7 @@ class SimpleCustomAppBar3 extends StatelessWidget
 //       children: [
 //         AppBar(
 //           centerTitle: widget.centerTitle,
-//           backgroundColor: kbackground,
+//           backgroundColor: kDynamicContainer,
 //           titleSpacing: -10,
 //           automaticallyImplyLeading: false,
 //           leading:
@@ -2199,7 +2199,7 @@ class CustomAppBarText extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           centerTitle: centerTitle,
-          backgroundColor: kbackground,
+          backgroundColor: kDynamicContainer,
           automaticallyImplyLeading: false,
           titleSpacing: -10,
           leading:

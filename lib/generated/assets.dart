@@ -847,7 +847,15 @@ class Assets {
 
 //
     static const String imagesgirlfindingproducts = "assets/images/girlfindingproducts.jpg";
+    static const String Imageshostingevents = "assets/images/event.jpg";
+    static const String Imagesofeventcard = "assets/images/imagesofeventcard.jpg";
 
+    static const String Imageshomesvg = "assets/images/home.svg";
+    static const String Imagescalendarsvg = "assets/images/calendar.svg";
+    static const String Imagesnotificatiosvg = "assets/images/notification.svg";
+    static const String Imagesprofilesvg = "assets/images/profile.svg";
+
+         static const String Imagesaddsvg = "assets/images/add.svg";
 
 }
 

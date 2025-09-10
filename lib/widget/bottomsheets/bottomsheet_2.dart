@@ -27,8 +27,8 @@ void FliterServicesBottomSheet2(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -149,8 +149,8 @@ void FilterServicesBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -284,8 +284,8 @@ void FliterServicesSortBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -420,8 +420,8 @@ void FliterServicesRatingBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -573,8 +573,8 @@ void FliterServicesCountryBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -656,8 +656,8 @@ void FliterServicesCityBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -742,8 +742,8 @@ void FliterServicesCategoryBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -893,8 +893,8 @@ void FliterServicesAgnetBottomSheet(BuildContext context) {
         builder: (context, setState) {
           return Container(
             padding: AppSizes.DEFAULT,
-            decoration: const BoxDecoration(
-              color: kbackground,
+            decoration:  BoxDecoration(
+              color: kDynamicContainer,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(

@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:formify/config/routes/routes.dart';
+import 'package:formify/views/auth/authscreen.dart';
 import 'package:formify/views/intial.dart';
 import 'package:get/get.dart';
 
@@ -28,24 +29,25 @@ class SplashController extends GetxController {
   void startProgressAnimation() {
     const totalDuration = Duration(seconds: 2);
     const interval = Duration(milliseconds: 16); // ~60 FPS
-    
+
     var elapsed = Duration.zero;
-    
+
     // Animate progress manually
     Timer.periodic(interval, (timer) {
       elapsed += interval;
-      
+
       if (elapsed >= totalDuration) {
         timer.cancel();
         progressValue.value = 1.0;
-       //navigateToNextScreen();
+        navigateToNextScreen();
       } else {
-        progressValue.value = elapsed.inMilliseconds / totalDuration.inMilliseconds;
+        progressValue.value =
+            elapsed.inMilliseconds / totalDuration.inMilliseconds;
       }
     });
   }
 
   void navigateToNextScreen() {
-    Get.to(InitialScreen());
+    Get.to(Authscreen());
   }
 }

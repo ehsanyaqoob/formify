@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeController extends GetxController {
-  final Rx<ThemeMode> _themeMode = ThemeMode.system.obs;
-  final RxBool _isDarkMode = false.obs;
+  final Rx<ThemeMode> _themeMode = ThemeMode.dark.obs; 
+  final RxBool _isDarkMode = true.obs;
+Rx<ThemeMode> get theme => _themeMode; 
 
   ThemeMode get themeMode => _themeMode.value;
   bool get isDarkMode => _isDarkMode.value;
@@ -29,9 +30,10 @@ class ThemeController extends GetxController {
   void _checkSystemThemeAndUpdate() {
     final bool wasDarkMode = _isDarkMode.value;
     _checkSystemTheme();
-    
-    // Only update if the system theme changed and we're in system mode
-    if (_themeMode.value == ThemeMode.system && wasDarkMode != _isDarkMode.value) {
+
+    // Only update if system theme changed and we’re in system mode
+    if (_themeMode.value == ThemeMode.system &&
+        wasDarkMode != _isDarkMode.value) {
       update();
     }
   }
@@ -39,8 +41,8 @@ class ThemeController extends GetxController {
   Future<void> _loadThemePreference() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final String theme = prefs.getString('theme') ?? 'system';
-      
+      final String theme = prefs.getString('theme') ?? 'dark'; // 👈 default dark
+
       switch (theme) {
         case 'light':
           _themeMode.value = ThemeMode.light;
@@ -56,31 +58,30 @@ class ThemeController extends GetxController {
           break;
       }
     } catch (e) {
-      // Fallback to system theme if loading fails
-      _themeMode.value = ThemeMode.system;
-      _checkSystemTheme();
+      // Fallback to dark theme if loading fails
+      _themeMode.value = ThemeMode.dark;
+      _isDarkMode.value = true;
     }
   }
 
   void _checkSystemTheme() {
-    final Brightness platformBrightness = WidgetsBinding.instance.window.platformBrightness;
+    final Brightness platformBrightness =
+        WidgetsBinding.instance.window.platformBrightness;
     _isDarkMode.value = platformBrightness == Brightness.dark;
   }
 
   Future<void> switchTheme(ThemeMode mode) async {
     try {
       _themeMode.value = mode;
-      
-      // Update dark mode status based on the new theme mode
+
       if (mode == ThemeMode.light) {
         _isDarkMode.value = false;
       } else if (mode == ThemeMode.dark) {
         _isDarkMode.value = true;
       } else {
-        _checkSystemTheme(); // System mode - check current system theme
+        _checkSystemTheme();
       }
-      
-      // Save preference
+
       final prefs = await SharedPreferences.getInstance();
       switch (mode) {
         case ThemeMode.light:
@@ -95,7 +96,7 @@ class ThemeController extends GetxController {
       }
       update();
     } catch (e) {
-      // Handle or log the error if needed
+      // ignore error
     }
   }
 
@@ -132,7 +133,6 @@ class LifecycleEventHandler extends WidgetsBindingObserver {
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
       case AppLifecycleState.hidden:
-        // No action needed for these states
         break;
     }
   }

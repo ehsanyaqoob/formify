@@ -55,7 +55,7 @@ class GenericBottomSheet extends StatelessWidget {
             ),
           ),
           const Gap(20),
-          
+
           // Header with close button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,14 +81,13 @@ class GenericBottomSheet extends StatelessWidget {
             ],
           ),
           const Gap(20),
-          
+
           ...children,
         ],
       ),
     );
   }
 }
-
 
 class EmailSignInBottomSheet extends StatefulWidget {
   EmailSignInBottomSheet({
@@ -124,22 +123,21 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GenericBottomSheet(
-        
         title: "Sign In with Email".tr,
         onClose: () => Navigator.pop(context),
         children: [
           MyButtonWithIcon(
-                      text: 'Sign-In with Google'.tr,
-                      icon: Icons.email,
-                      onTap: () {
-                        // Handle sign-in with email
-                         DialogHelper.GoogleSignInDialog(context);
-                      },
-                      color: kPrimaryColor,
-                      textColor: kDynamicText,
-                    ),
-                    Gap(20),
-                    // Divider with "or"
+            text: 'Sign-In with Google'.tr,
+            icon: Icons.email,
+            onTap: () {
+              // Handle sign-in with email
+              DialogHelper.GoogleSignInDialog(context);
+            },
+            color: kPrimaryColor,
+            textColor: kDynamicText,
+          ),
+          Gap(20),
+          // Divider with "or"
           Row(
             children: [
               Expanded(
@@ -196,8 +194,8 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
               suffix: IconButton(
                 icon: Icon(
                   authController.obscurePassword.value
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
                   color: kSubText.withOpacity(0.7),
                 ),
                 onPressed: () {
@@ -207,18 +205,18 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
             ),
           ),
           const Gap(16),
-
-          // Remember Me & Forgot Password
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Obx(
                     () => Checkbox(
                       value: authController.rememberMe.value,
                       onChanged: authController.toggleRememberMe,
                       activeColor: kPrimaryColor,
+
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
@@ -231,20 +229,27 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
                     weight: FontWeight.w500,
                   ),
                 ],
-              ),
-              Bounce(
-                onTap: () {
-                  // Handle forgot password
-                },
-                child: MyText(
-                  text: "Forgot Password?".tr,
-                  size: 14,
-                  color: kPrimaryColor,
-                  weight: FontWeight.w600,
+              ),const Gap(100),
+              Expanded(
+                child: Wrap(
+                  children: [
+                    Bounce(
+                      onTap: () {
+                        // Handle forgot password
+                      },
+                      child: MyText(
+                        text: "Forgot Password?".tr,
+                        size: 14,
+                        color: kPrimaryColor,
+                        weight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
+
           const Gap(24),
 
           // Sign In Button
@@ -259,7 +264,6 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
                           emailController.text.trim(),
                           passwordController.text.trim(),
                         );
-                        
                       },
                 buttonText: authController.isLoading.value
                     ? "Signing In...".tr
@@ -303,7 +307,8 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
               _buildBiometricOption(
                 icon: Icons.face,
                 text: "Face ID".tr,
-                onTap: widget.onFaceIDPressed ??
+                onTap:
+                    widget.onFaceIDPressed ??
                     () {
                       Get.to(
                         () => FaceIDScreen(),
@@ -315,7 +320,8 @@ class _EmailSignInBottomSheetState extends State<EmailSignInBottomSheet> {
               _buildBiometricOption(
                 icon: Icons.fingerprint,
                 text: "Fingerprint".tr,
-                onTap: widget.onFingerprintPressed ??
+                onTap:
+                    widget.onFingerprintPressed ??
                     () {
                       Get.to(
                         () => FingerPrintScreen(),
@@ -398,9 +404,7 @@ class _EmailSignUpBottomSheetState extends State<EmailSignUpBottomSheet> {
   Widget build(BuildContext context) {
     return Container(
       // This container ensures the rounded corners
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
-      ),
+      decoration: const BoxDecoration(color: Colors.transparent),
       child: SingleChildScrollView(
         // Add padding to handle keyboard
         padding: EdgeInsets.only(
@@ -411,36 +415,42 @@ class _EmailSignUpBottomSheetState extends State<EmailSignUpBottomSheet> {
           onClose: () => Navigator.pop(context),
           children: [
             MyButtonWithIcon(
-                      text: 'Sign-In with Google'.tr,
-                      icon: Icons.email,
-                      onTap: () {
-                        // Handle sign-in with email
-                         DialogHelper.GoogleSignInDialog(context);
-                      },
-                      color: kPrimaryColor,
-                      textColor: kDynamicText,
-                    ),
-                    Gap(20),
-                    // Divider with "or"
-          Row(
-            children: [
-              Expanded(
-                child: Divider(color: kSubText.withOpacity(0.3), thickness: 1),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: MyText(
-                  text: "or use".tr,
-                  size: 16,
-                  color: kPrimaryColor,
-                  weight: FontWeight.w500,
+              text: 'Sign-In with Google'.tr,
+              icon: Icons.email,
+              onTap: () {
+                // Handle sign-in with email
+                DialogHelper.GoogleSignInDialog(context);
+              },
+              color: kPrimaryColor,
+              textColor: kDynamicText,
+            ),
+            Gap(20),
+            // Divider with "or"
+            Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: kSubText.withOpacity(0.3),
+                    thickness: 1,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Divider(color: kSubText.withOpacity(0.3), thickness: 1),
-              ),
-            ],
-          ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: MyText(
+                    text: "or use".tr,
+                    size: 16,
+                    color: kPrimaryColor,
+                    weight: FontWeight.w500,
+                  ),
+                ),
+                Expanded(
+                  child: Divider(
+                    color: kSubText.withOpacity(0.3),
+                    thickness: 1,
+                  ),
+                ),
+              ],
+            ),
             // Name Field
             MyText(
               text: "Full Name".tr,
@@ -485,38 +495,42 @@ class _EmailSignUpBottomSheetState extends State<EmailSignUpBottomSheet> {
               color: kBlack,
               weight: FontWeight.w600,
             ),
-            Obx(() => MyTextField(
-              controller: passwordController,
-              hint: "Create a strong password".tr,
-              focusNode: passwordFocusNode,
-              isObSecure: authController.obscurePassword.value,
-              filledColor: Colors.grey[100],
-              focusedFillColor: Colors.grey[100],
-              suffix: IconButton(
-                icon: Icon(
-                  authController.obscurePassword.value
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                  color: kSubText.withOpacity(0.7),
+            Obx(
+              () => MyTextField(
+                controller: passwordController,
+                hint: "Create a strong password".tr,
+                focusNode: passwordFocusNode,
+                isObSecure: authController.obscurePassword.value,
+                filledColor: Colors.grey[100],
+                focusedFillColor: Colors.grey[100],
+                suffix: IconButton(
+                  icon: Icon(
+                    authController.obscurePassword.value
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
+                    color: kSubText.withOpacity(0.7),
+                  ),
+                  onPressed: () {
+                    authController.togglePasswordVisibility();
+                  },
                 ),
-                onPressed: () {
-                  authController.togglePasswordVisibility();
-                },
               ),
-            )),
+            ),
             const Gap(16),
 
             // Terms and Conditions
             Row(
               children: [
-                Obx(() => Checkbox(
-                  value: authController.agreeToTerms.value,
-                  onChanged: authController.toggleAgreeToTerms,
-                  activeColor: kPrimaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
+                Obx(
+                  () => Checkbox(
+                    value: authController.agreeToTerms.value,
+                    onChanged: authController.toggleAgreeToTerms,
+                    activeColor: kPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
                   ),
-                )),
+                ),
                 Expanded(
                   child: Wrap(
                     children: [
@@ -545,29 +559,30 @@ class _EmailSignUpBottomSheetState extends State<EmailSignUpBottomSheet> {
             const Gap(24),
 
             // Sign Up Button
-            Obx(() => SizedBox(
-              width: double.infinity,
-              child: MyButton(
-                onTap: authController.isLoading.value
-                    ? null
-                    : () async {
-                        final success = await authController.signup(
-                          nameController.text.trim(),
-                          emailController.text.trim(),
-                          passwordController.text.trim(),
-                        );
-                        
-                      },
-                buttonText: authController.isLoading.value
-                    ? "Creating Account...".tr
-                    : "Create Account".tr,
-                backgroundColor: kPrimaryColor,
-                fontColor: kWhite,
-                isLoading: authController.isLoading.value,
-                height: 50,
-                radius: 12,
+            Obx(
+              () => SizedBox(
+                width: double.infinity,
+                child: MyButton(
+                  onTap: authController.isLoading.value
+                      ? null
+                      : () async {
+                          final success = await authController.signup(
+                            nameController.text.trim(),
+                            emailController.text.trim(),
+                            passwordController.text.trim(),
+                          );
+                        },
+                  buttonText: authController.isLoading.value
+                      ? "Creating Account...".tr
+                      : "Create Account".tr,
+                  backgroundColor: kPrimaryColor,
+                  fontColor: kWhite,
+                  isLoading: authController.isLoading.value,
+                  height: 50,
+                  radius: 12,
+                ),
               ),
-            )),
+            ),
             const Gap(16),
 
             // Already have an account

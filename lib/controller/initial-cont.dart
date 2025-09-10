@@ -6,20 +6,19 @@ class InitialController extends GetxController {
   final currentPage = 0.obs;
 
   final List<Map<String, String>> onboardingData = [
-    {
-      'title': 'Endless Choices\nJust For You',
-      'subtitle': 'From daily basis to premium finds, explore the world of products curated to meet your every need.',
-    },
-    {
-      'title': 'Seamless Shopping\nExperience',
-      'subtitle': 'Browse, select, and purchase with ease. Our intuitive interface makes shopping a breeze.',
-    },
-    {
-      'title': 'Fast & Secure\nCheckout',
-      'subtitle': 'Complete your purchases quickly with our secure payment options and fast delivery.',
-    },
-  ];
-
+  {
+    'title': 'Effortless Event\nManagement',
+    'subtitle': 'From daily meetings to special occasions, organize your schedule with elegant simplicity and precision.',
+  },
+  {
+    'title': 'Seamless Calendar\nExperience',
+    'subtitle': 'Navigate your events with intuitive gestures and beautiful visuals designed for effortless planning.',
+  },
+  {
+    'title': 'Smart Event\nOrganization',
+    'subtitle': 'Quickly create, edit, and track events with our clean interface and intelligent scheduling features.',
+  },
+];
   void nextPage() {
     if (currentPage.value < onboardingData.length - 1) {
       pageController.nextPage(
